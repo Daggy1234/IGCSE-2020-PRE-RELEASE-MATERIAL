@@ -1,0 +1,87 @@
+START
+print "1.hatchbak is 535000"
+print"2.saloon is 495000"
+print"3.estate is 625000"
+print"enter serial number of model"
+Input modelnumber
+total = 0
+modelprice = 0 
+CASE modelnumber OF:
+1: modelprice = 535000
+2: modelprice = 495000
+3: modelprice =625000
+ENDCASE
+OTHERWISE print("ENTER VALID NUMBER")
+
+addontotalDECLARE addonarrayprice as array[1:5] as integer
+addonarrayprice[1] = 45000
+addonarrayprice[2] = 5500
+addonarrayprice[3] = 10000
+addonarrayprice[4] = 350
+addonarrayprice[5] = 1000
+DECLARE addonarray as array[1:5] as integer
+print "1.Set of Luxury Seats is 535000"
+print"2.Satellite navigation is 495000"
+print"3.estate is 625000"
+print"4.saloon is 495000"
+print"5.estate is 625000"
+while y != 0 DO
+	print("enter serial number of addon, enter 0 to exit")
+	INPUT y
+	cCASE y OF:
+	1:addonarray[1]=1
+	2:addonarray[2]=1
+	3:addonarray[3]=1
+	4:addonarray[4]=1
+	5:addonarray[5]=1
+	OTHERWISE print("ENTER VALID ADDON NUMBER")
+	ENDCASE
+ENDWHILE
+addontotal = 0
+for i= 1 To 5
+	addontotal = addontotal +addonarray[i]*addonarrayprice[i]
+NEXT i
+print("Regular = 1")
+print("non regular = 2")
+print(Are you a regular (1/2)")
+INPUT regularchgeck
+if regularcheck == 1 THEN
+	total = (modelprice*0.90)+(addontotal*0.90)
+else
+	total = addontotal + modelprice
+endif
+print("trade in = 1")
+print("no trade in = 2")
+INPUT tradeincheck
+if tradeincheck == 1:
+	print ("ENTER TRADE IN")
+	INPUT tradein
+	IF (tradein>10000) AND (tradein<100000) THEN
+		total = total-tradein
+	else
+		print("ENTER VAlid TRADE-IN")
+	endif
+endif
+cashbackprice = (total*0.99)
+freeaddonprice = (total-addontotal)
+print(" ONE TIME PAYMENT, No of payments 1; NO MONTHLY AMAOUNT"")
+if freeaddonprice>cashbackprice THEN
+	print("DEAL 1- 1% cash back")
+	print("amount",cashbackprice)
+	print("DEAL 2- FREE ADD_ONS")
+	print("amount",freeaddonprice)
+else:
+	print("DEAL 1- FREE ADD_ONS")
+	print("amount",freeaddonprice)
+	print("DEAL 2- 1% cash back")
+	print("amount",cashbackprice)
+print("total for 4 years:",total)
+print("4 years payments, 36 payments , MONTHLY AMOUNT",total/36)
+sevenyearprice = (total*1.05)
+print("total for 7 years:",sevenyearpriceyearprice)
+print("7 years payments, 84 payments , MONTHLY AMOUNT",sevenyearprice/84)
+END
+
+
+	
+
